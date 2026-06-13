@@ -15,6 +15,7 @@ def start_servidor_tcp():
     print("Conexão estabelecida com sucesso! Aguardando mensagem...")
 
     data = connection.recv(1024).decode("utf-8")
+    connection.sendall("Mensagem recebida pelo servidor!".encode("utf-8"))
     print(data)
 
     server_socket.close()

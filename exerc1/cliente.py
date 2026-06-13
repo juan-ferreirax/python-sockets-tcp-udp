@@ -13,6 +13,8 @@ def start_client_tcp():
 
     mensagem = "Mensagem do cliente"
     client_socket.sendall(mensagem.encode("utf-8"))
+    resposta = client_socket.recv(1024)
+    print(resposta.decode("utf-8"))
     client_socket.close()
 
 # Inicia o cliente TCP
