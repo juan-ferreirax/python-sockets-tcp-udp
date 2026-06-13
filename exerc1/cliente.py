@@ -11,7 +11,9 @@ def start_client_tcp():
     client_socket.connect((ENDERECO_IP, PORTA))
     print("Conexão estabelecida com sucesso!")
 
-    mensagem = "Mensagem do cliente"
+    mensagem = input("Digite sua mensagem: ")
+    if mensagem == "":
+        mensagem = " "
     client_socket.sendall(mensagem.encode("utf-8"))
     resposta = client_socket.recv(1024)
     print(resposta.decode("utf-8"))
