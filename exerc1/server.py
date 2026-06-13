@@ -7,9 +7,9 @@ ENDERECO_IP = "127.0.0.1"
 PORTA = 8000
 
 def gerenciar_cliente(conexao, endereco):
-    print(f"Conexão estabelecida com {endereco[0]}:{endereco[1]}! Aguardando mensagem...")
+    # Tratamento de excessão
     try:
-        data = conexao.recv(1024).decode("utf-8")
+        data = conexao.recv(1024).decode("utf-8") # Recebimento dos dados do cliente
         
         # Validação de mensagem vazia
         if not data or not data.strip():
@@ -29,8 +29,10 @@ def start_servidor_tcp():
     server_socket.listen()
     print(f"Servidor ouvindo na porta {PORTA}...")
 
+    # Loop para permitir multiplas conexões de clientes
     while True:
         conexao, endereco = server_socket.accept()
+        print(f"Conexão estabelecida com {endereco[0]}:{endereco[1]}! Aguardando mensagem...")
         thread = threading.Thread(target=gerenciar_cliente, args=(conexao, endereco))
         thread.start()
 

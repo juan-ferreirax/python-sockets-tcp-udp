@@ -12,12 +12,12 @@ def start_client_tcp():
     print("Conexão estabelecida com sucesso!")
 
     mensagem = input("Digite sua mensagem: ")
-    if mensagem == "":
+    if mensagem == "": # Tratamento para caso for pressionado apenas "Enter" no input da mensagem
         mensagem = " "
-    client_socket.sendall(mensagem.encode("utf-8"))
+    client_socket.sendall(mensagem.encode("utf-8")) # Envio da mensagem para o servidor
     resposta = client_socket.recv(1024)
-    print(resposta.decode("utf-8"))
-    client_socket.close()
+    print(resposta.decode("utf-8")) # Confirmação de recebimento enviada pelo servidor
+    client_socket.close() # Encerramento da conexão
 
 # Inicia o cliente TCP
 start_client_tcp()
