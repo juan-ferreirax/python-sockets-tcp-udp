@@ -13,7 +13,7 @@ def gerenciar_cliente(conexao, endereco):
         
         # Validação de mensagem vazia
         if not data or not data.strip():
-            print(f"[{endereco[1]}] Enviou uma mensagem vazia.")
+            print(f"O cliente [{endereco[1]}] Enviou uma mensagem vazia.")
             conexao.sendall("Erro: Mensagem vazia não permitida.".encode("utf-8"))
         else:
             print(f"[{endereco[1]}] Mensagem: {data}")
@@ -31,8 +31,6 @@ def start_servidor_tcp():
 
     while True:
         conexao, endereco = server_socket.accept()
-        print("Conexão estabelecida com sucesso! Aguardando mensagem...")
-
         thread = threading.Thread(target=gerenciar_cliente, args=(conexao, endereco))
         thread.start()
 
