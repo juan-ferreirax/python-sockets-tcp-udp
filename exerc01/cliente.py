@@ -3,8 +3,8 @@
 import socket
 
 try:
-    ENDERECO_IP = input("Informe o endereço IP do cliente: ")
-    PORTA = int(input("Informe uma porta: "))
+    ENDERECO_IP = input("Informe o endereço IP do servidor: ")
+    PORTA = int(input("Informe a porta do servidor: "))
 except KeyboardInterrupt:
     print("\nCliente finalizado.")
     raise SystemExit
