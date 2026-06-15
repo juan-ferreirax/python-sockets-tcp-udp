@@ -6,3 +6,6 @@ tempCodeRunnerFile.py
 
 # Arquivos de cache
 __pycache__
+
+# Arquivos de configuração do Obsidian (editor de markdown)
+.obsidian
