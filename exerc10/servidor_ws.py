@@ -3,8 +3,12 @@
 import asyncio
 import websockets
 
-ENDERECO_IP = input("Informe o endereço IP do servidor: ")
-PORTA = int(input("Informe uma porta: "))
+try:
+    ENDERECO_IP = input("Informe o endereço IP do servidor: ")
+    PORTA = int(input("Informe uma porta(0 para o SO escolher automaticamente): "))
+except KeyboardInterrupt:
+    print("\nServidor finalizado.")
+    raise SystemExit
 conexoes_ativas = {} # Armazena os sockets conectados e seus respectivos nomes
 contadores_nomes = {} # Gerencia a numeração para nomes duplicados
 
@@ -62,8 +66,12 @@ async def gerenciar_conexoes(websocket):
             print(f"[{nome_desconectado}] perdeu a conexão! Total de usuários conectados: {len(conexoes_ativas)}")
 
 async def start_servidor():
-    async with websockets.serve(gerenciar_conexoes, ENDERECO_IP, PORTA):
-        print(f"Servidor ouvindo na porta {PORTA}...")
+    async with websockets.serve(gerenciar_conexoes, ENDERECO_IP, PORTA) as servidor:
+        if PORTA == 0:
+            porta_real = servidor.sockets[0].getsockname()[1]
+        else:
+            porta_real = PORTA
+        print(f"Servidor ouvindo em {ENDERECO_IP}:{porta_real}...")
         await asyncio.Future()
 
 # Inicia o servidor
