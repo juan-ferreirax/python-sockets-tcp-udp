@@ -2,7 +2,7 @@
 
 import socket
 
-ENDERECO_IP = "127.0.0.1"
+ENDERECO_IP = input("Informe o endereço IP do cliente: ")
 PORTA = 8000
 
 def start_client_tcp():

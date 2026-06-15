@@ -3,7 +3,7 @@
 import socket
 import threading
 
-ENDERECO_IP = "127.0.0.1"
+ENDERECO_IP = input("Informe o endereço IP do servidor: ")
 PORTA = 8000
 
 def gerenciar_cliente(conexao, endereco):

@@ -3,7 +3,7 @@
 import asyncio
 import websockets
 
-ENDERECO_IP = "127.0.0.1"
+ENDERECO_IP = input("Informe o endereço IP do servidor: ")
 PORTA = 8000
 conexoes_ativas = {} # Armazena os sockets conectados e seus respectivos nomes
 contadores_nomes = {} # Gerencia a numeração para nomes duplicados
