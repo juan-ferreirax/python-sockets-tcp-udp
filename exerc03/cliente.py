@@ -4,8 +4,13 @@ import socket
 import threading
 import sys
 
-# Prompt exibido como constante para garantir consistência em todo o código,
-# já que ele é reexibido em múltiplos pontos
+try:
+    ENDERECO_IP = input("Informe o endereço IP do servidor: ")
+    PORTA = int(input("Informe a porta do servidor: "))
+except KeyboardInterrupt:
+    print("\nCliente finalizado.")
+    raise SystemExit
+
 PROMPT = "Digite sua mensagem: "
 
 
@@ -16,7 +21,7 @@ def receber_mensagens(client_socket):
     """
     try:
         while True:
-            # Bloqueia aguardando dados do servidor (até 1024 bytes por vez)
+            # Bloqueia aguardando dados do servidor 
             data = client_socket.recv(1024)
 
             # recv() retorna bytes vazios quando o servidor fecha a conexão
@@ -80,14 +85,11 @@ def enviar_mensagens(client_socket):
 
 
 def main():
-    host = "127.0.0.1"
-    port = 7001
-
     # AF_INET = protocolo IPv4 | SOCK_STREAM = conexão TCP orientada a fluxo
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     try:
-        client_socket.connect((host, port))
+        client_socket.connect((ENDERECO_IP, PORTA))
         print("Conectado ao servidor de chat.")
         print("Digite 'sair' para encerrar.\n")
 
@@ -97,13 +99,12 @@ def main():
         sys.stdout.flush()
 
         # daemon=True faz a thread de recebimento encerrar automaticamente
-        # quando a thread principal (e a de envio) terminar
+        # quando a thread principal terminar
         thread_receber = threading.Thread(
             target=receber_mensagens,
             args=(client_socket,),
             daemon=True
         )
-
         thread_enviar = threading.Thread(
             target=enviar_mensagens,
             args=(client_socket,)
@@ -112,8 +113,7 @@ def main():
         thread_receber.start()
         thread_enviar.start()
 
-        # Aguarda a thread de envio terminar (quando usuário digita "sair")
-        # A thread de recebimento encerra sozinha por ser daemon
+        # Aguarda a thread de envio terminar 
         thread_enviar.join()
 
     except ConnectionRefusedError:
@@ -124,7 +124,6 @@ def main():
         print(f"Erro no cliente: {erro}")
     finally:
         client_socket.close()
-
 
 if __name__ == "__main__":
     main()

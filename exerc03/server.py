@@ -3,6 +3,13 @@
 import socket
 import threading
 
+try:
+    ENDERECO_IP = input("Informe o endereço IP do servidor: ")
+    PORTA = int(input("Informe a porta do servidor: "))
+except KeyboardInterrupt:
+    print("\nServidor finalizado.")
+    raise SystemExit
+
 
 def encaminhar_mensagens(cliente_origem, cliente_destino, nome_cliente):
     """
@@ -49,9 +56,6 @@ def encaminhar_mensagens(cliente_origem, cliente_destino, nome_cliente):
 
 
 def main():
-    host = "127.0.0.1"
-    port = 7001
-
     # AF_INET = protocolo IPv4 | SOCK_STREAM = conexão TCP orientada a fluxo
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -61,12 +65,12 @@ def main():
 
     try:
         # Associa o socket ao endereço e porta definidos
-        server_socket.bind((host, port))
+        server_socket.bind((ENDERECO_IP, PORTA))
 
         # Coloca o socket em modo de escuta, aceitando no máximo 2 conexões na fila
         server_socket.listen(2)
 
-        print(f"Servidor de chat ouvindo em {host}:{port}...")
+        print(f"Servidor de chat ouvindo em {ENDERECO_IP}:{PORTA}...")
         print("Aguardando dois clientes se conectarem...")
 
         # accept() bloqueia até um cliente conectar e retorna um novo socket
@@ -105,16 +109,13 @@ def main():
 
     except KeyboardInterrupt:
         print("\nServidor encerrado pelo usuário.")
-
     except OSError as erro:
         print(f"Erro no servidor: {erro}")
-
     finally:
         # Garante que o socket do servidor seja fechado mesmo em caso de exceção,
         # liberando a porta para uso futuro
         server_socket.close()
         print("Servidor finalizado.")
-
 
 if __name__ == "__main__":
     main()

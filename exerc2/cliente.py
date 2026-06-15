@@ -2,10 +2,14 @@
 
 import socket
 
-def main():
-    host = "127.0.0.1"
-    port = 6000
+try:
+    ENDERECO_IP = input("Informe o endereço IP do servidor: ")
+    PORTA = int(input("Informe a porta do servidor: "))
+except KeyboardInterrupt:
+    print("\nCliente finalizado.")
+    raise SystemExit
 
+def main():
     # Tamanho máximo aproximado permitido para uma mensagem UDP em IPv4
     max_size = 65507
 
@@ -39,11 +43,10 @@ def main():
 
             try:
                 # Envia a mensagem para o servidor
-                client_socket.sendto(message_bytes, (host, port))
+                client_socket.sendto(message_bytes, (ENDERECO_IP, PORTA))
 
                 # Aguarda a resposta do servidor
                 data, server_address = client_socket.recvfrom(max_size)
-
                 response = data.decode("utf-8", errors="replace")
                 print(f"Eco recebido de {server_address}: {response}")
 
@@ -55,7 +58,6 @@ def main():
 
     finally:
         client_socket.close()
-
 
 if __name__ == "__main__":
     main()
