@@ -4,8 +4,12 @@ import asyncio # Gerencia as tarefas simultâneas.
 import websockets # Faz a conexão com o servidor.
 import sys # Manipula I/O no terminal
 
-ENDERECO_IP = input("Informe o endereço IP do cliente: ")
-PORTA = int(input("Informe uma porta: "))
+try:
+    ENDERECO_IP = input("Informe o endereço IP do cliente: ")
+    PORTA = int(input("Informe uma porta: "))
+except KeyboardInterrupt:
+    print("\nCliente finalizado.")
+    raise SystemExit
 
 async def receber_mensagens(websocket, nome):
     try:
