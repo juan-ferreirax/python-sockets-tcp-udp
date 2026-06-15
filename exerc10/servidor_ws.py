@@ -68,6 +68,7 @@ async def gerenciar_conexoes(websocket):
 async def start_servidor():
     async with websockets.serve(gerenciar_conexoes, ENDERECO_IP, PORTA) as servidor:
         if PORTA == 0:
+            # SO aloca automaticamente uma porta disponível caso informado 0
             porta_real = servidor.sockets[0].getsockname()[1]
         else:
             porta_real = PORTA
