@@ -1,3 +1,5 @@
+# Discentes: Juan Pablo Ferreira Costa, Nadson Nascimento Santos e Vitor Mozer Vieira Sales
+
 2026-06-14 21:25:40,327 [MainThread] Servidor de hora rodando em 0.0.0.0:7000...
 2026-06-14 21:26:10,784 [Thread-54869] Conexão recebida de ('127.0.0.1', 54869)
 2026-06-14 21:26:10,784 [Thread-54869] Hora enviada para ('127.0.0.1', 54869): 21:26:10

@@ -1,8 +1,14 @@
+# Discentes: Juan Pablo Ferreira Costa, Nadson Nascimento Santos e Vitor Mozer Vieira Sales
+
 import socket
 import threading
 import logging
 import os
 from datetime import datetime
+
+# Constantes de configuração
+HOST = "0.0.0.0"   # Aceita conexões de qualquer interface de rede
+PORT = 7000         # Porta em que o servidor irá escutar
 
 # Os logs serão salvos em "servidor.log" e também exibidos no console
 logging.basicConfig(
@@ -14,10 +20,6 @@ logging.basicConfig(
         logging.StreamHandler()
     ]
 )
-
-# Constantes de configuração
-HOST = "0.0.0.0"   # Aceita conexões de qualquer interface de rede
-PORT = 7000         # Porta em que o servidor irá escutar
 
 
 def atender_cliente(conn, addr):
