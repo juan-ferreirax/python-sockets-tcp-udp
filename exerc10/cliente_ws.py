@@ -5,7 +5,7 @@ import websockets # Faz a conexão com o servidor.
 import sys # Manipula I/O no terminal
 
 ENDERECO_IP = input("Informe o endereço IP do cliente: ")
-PORTA = 8000
+PORTA = int(input("Informe uma porta: "))
 
 async def receber_mensagens(websocket, nome):
     try:

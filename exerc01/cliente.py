@@ -3,7 +3,7 @@
 import socket
 
 ENDERECO_IP = input("Informe o endereço IP do cliente: ")
-PORTA = 8000
+PORTA = int(input("Informe uma porta: "))
 
 def start_client_tcp():
     # Cria o socket TCP e realiza a conexão com o servidor

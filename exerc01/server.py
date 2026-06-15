@@ -4,7 +4,7 @@ import socket
 import threading
 
 ENDERECO_IP = input("Informe o endereço IP do servidor: ")
-PORTA = 8000
+PORTA = int(input("Informe uma porta: "))
 
 def gerenciar_cliente(conexao, endereco):
     # Tratamento de excessão
