@@ -7,8 +7,12 @@ import os
 from datetime import datetime
 
 # Constantes de configuração
-HOST = "0.0.0.0"   # Aceita conexões de qualquer interface de rede
-PORT = 7000         # Porta em que o servidor irá escutar
+try:
+    HOST = input("Informe o endereço IP do servidor: ")
+    PORT = int(input("Informe uma porta do servidor: "))
+except KeyboardInterrupt:
+    print("\nServidor finalizado.")
+    raise SystemExit
 
 # Os logs serão salvos em "servidor.log" e também exibidos no console
 logging.basicConfig(

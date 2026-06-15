@@ -2,9 +2,12 @@
 import socket
 
 # Configurações de conexão
-HOST = "127.0.0.1"  # Endereço do servidor
-PORT = 7000          # Porta do servidor
-
+try:
+    HOST = input("Informe o endereço IP do servidor: ")
+    PORT = int(input("Informe a porta do servidor: "))
+except KeyboardInterrupt:
+    print("\nCliente finalizado.")
+    raise SystemExit
 
 def solicitar_hora():
     try:
