@@ -2,13 +2,13 @@
 
 **Discentes:** Juan Pablo Ferreira Costa, Nadson Nascimento Santos e Vitor Mozer Vieira Sales
 
-![alt text](get.png)
+![get.png](get.png)
 
 O site acessado foi o http://http.badssl.com/ indicado no campo Host da requisição. Por não usar criptografia SSL/TLS é possível visualizar de forma direta as requisições HTTP. Há a presença do método de requisição GET onde é buscado os arquivos de texto html e css que compõe a página além de arquivos de imagem como o ícone que fica na barra do navegador.
 
 ### Exemplo de cabeçalho de resposta do HTML
 
-![alt text](html.png)
+![html.png](html.png)
 
 ### Conteúdo HTML do pacote de resposta HTTP/1.1 200 OK  (text/html)
 

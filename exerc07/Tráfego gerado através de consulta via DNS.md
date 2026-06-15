@@ -1,6 +1,6 @@
 # Tráfego gerado através de consulta via DNS
 
-![alt text](wireshark.png)
+![wireshark.png](wireshark.png)
 
 Ao acessar o site https://pudim.com.br/ é observado o processo de resolução de nomes pelo DNS (Domain Name System). O processo tem início no pacote de nº 18 porém é no pacote de nº 20 que o cliente envia uma consulta solicitando o endereço IP do https://pudim.com.br/. Essa resposta chega no pacote de nº 24 com o mesmo Transaction ID 0x0a95. 
 
