@@ -1,0 +1,7 @@
+2026-06-14 21:25:40,327 [MainThread] Servidor de hora rodando em 0.0.0.0:7000...
+2026-06-14 21:26:10,784 [Thread-54869] Conexão recebida de ('127.0.0.1', 54869)
+2026-06-14 21:26:10,784 [Thread-54869] Hora enviada para ('127.0.0.1', 54869): 21:26:10
+2026-06-14 21:26:10,785 [Thread-54869] Conexão encerrada com ('127.0.0.1', 54869)
+2026-06-14 21:27:08,972 [Thread-54877] Conexão recebida de ('127.0.0.1', 54877)
+2026-06-14 21:27:08,973 [Thread-54877] Hora enviada para ('127.0.0.1', 54877): 21:27:08
+2026-06-14 21:27:08,973 [Thread-54877] Conexão encerrada com ('127.0.0.1', 54877)
