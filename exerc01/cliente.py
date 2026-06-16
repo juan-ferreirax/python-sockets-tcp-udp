@@ -2,8 +2,12 @@
 
 import socket
 
-ENDERECO_IP = "127.0.0.1"
-PORTA = 8000
+try:
+    ENDERECO_IP = input("Informe o endereço IP do servidor: ")
+    PORTA = int(input("Informe a porta do servidor: "))
+except KeyboardInterrupt:
+    print("\nCliente finalizado.")
+    raise SystemExit
 
 def start_client_tcp():
     # Cria o socket TCP e realiza a conexão com o servidor

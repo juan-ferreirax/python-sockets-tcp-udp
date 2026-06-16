@@ -1,0 +1,13 @@
+# Discentes: Juan Pablo Ferreira Costa, Nadson Nascimento Santos e Vitor Mozer Vieira Sales
+
+2026-06-15 19:09:07,938 [MainThread] Servidor de hora rodando em 127.0.0.1:8000...
+2026-06-15 19:09:32,354 [Thread-48558] Conexão recebida de ('127.0.0.1', 48558)
+2026-06-15 19:09:32,354 [Thread-48558] Hora enviada para ('127.0.0.1', 48558): 19:09:32
+2026-06-15 19:09:32,354 [Thread-48558] Conexão encerrada com ('127.0.0.1', 48558)
+2026-06-15 19:09:44,836 [Thread-56790] Conexão recebida de ('127.0.0.1', 56790)
+2026-06-15 19:09:44,836 [Thread-56790] Hora enviada para ('127.0.0.1', 56790): 19:09:44
+2026-06-15 19:09:44,837 [Thread-56790] Conexão encerrada com ('127.0.0.1', 56790)
+2026-06-15 19:09:53,846 [Thread-45500] Conexão recebida de ('127.0.0.1', 45500)
+2026-06-15 19:09:53,847 [Thread-45500] Hora enviada para ('127.0.0.1', 45500): 19:09:53
+2026-06-15 19:09:53,847 [Thread-45500] Conexão encerrada com ('127.0.0.1', 45500)
+2026-06-15 19:10:12,506 [MainThread] Servidor encerrado pelo operador (Ctrl+C).

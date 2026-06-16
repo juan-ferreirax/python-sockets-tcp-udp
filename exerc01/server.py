@@ -3,8 +3,12 @@
 import socket
 import threading
 
-ENDERECO_IP = "127.0.0.1"
-PORTA = 8000
+try:
+    ENDERECO_IP = input("Informe o endereço IP do servidor: ")
+    PORTA = int(input("Informe uma porta(0 para o SO escolher automaticamente): "))
+except KeyboardInterrupt:
+    print("\nServidor finalizado.")
+    raise SystemExit
 
 def gerenciar_cliente(conexao, endereco):
     # Tratamento de excessão
@@ -27,7 +31,11 @@ def start_servidor_tcp():
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # Cria o socket TCP
     server_socket.bind((ENDERECO_IP, PORTA)) # Faz associação de IP e Porta
     server_socket.listen()
-    print(f"Servidor ouvindo na porta {PORTA}...")
+    if PORTA == 0:
+        porta_real = server_socket.getsockname()[1]
+    else:
+        porta_real = PORTA
+    print(f"Servidor ouvindo em {ENDERECO_IP}:{porta_real}...")
 
     # Loop para permitir multiplas conexões de clientes
     while True:
