@@ -1,5 +1,7 @@
 # Tráfego gerado pelo comando ping
 
+**Discentes:** Juan Pablo Ferreira Costa, Nadson Nascimento Santos e Vitor Mozer Vieira Sales
+
 ![terminal.png](terminal.png)
 
 ![wireshark.png](wireshark.png)

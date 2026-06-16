@@ -1,5 +1,7 @@
 # Tráfego gerado pelo DHCP
 
+**Discentes:** Juan Pablo Ferreira Costa, Nadson Nascimento Santos e Vitor Mozer Vieira Sales
+
 ![wireshark](wireshark.png)
 
 Ao desligar e ligar manualmente a rede Wi-Fi, o dispositivo envia uma mensagem em broadcast (255.255.255.0) solicitando um endereço IP. 
