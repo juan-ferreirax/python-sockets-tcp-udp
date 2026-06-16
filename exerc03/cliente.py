@@ -32,21 +32,14 @@ def receber_mensagens(client_socket):
 
             mensagem = data.decode("utf-8", errors="replace")
 
-            # Sequência para evitar sobreposição com o que o usuário está digitando:
-            # \r           → move o cursor para o início da linha atual
-            # ' ' * 80     → sobrescreve a linha inteira com espaços (apaga o prompt residual)
-            # \r           → volta ao início da linha de novo
-            # {mensagem}\n → imprime a mensagem recebida e quebra a linha
-            # {PROMPT}     → reexibe o prompt limpo para o usuário continuar digitando
-            sys.stdout.write(f"\r{' ' * 80}\r{mensagem}\n{PROMPT}")
-
-            # flush() força a escrita imediata no terminal,
-            # necessário pois sys.stdout usa buffer por padrão
-            sys.stdout.flush()
+            #\r volta o cursor para o início da linha
+            #\033[K apaga tudo que estava escrito na linha
+            sys.stdout.write(f"\r\033[K{mensagem}\nDigite sua mensagem: ")
+            sys.stdout.flush() 
 
     except OSError:
         # OSError ocorre quando o socket é fechado pela thread de envio
-        pass
+        print("\nRecebimento de mensagem encerrado.")
 
 
 def enviar_mensagens(client_socket):
@@ -60,7 +53,9 @@ def enviar_mensagens(client_socket):
             mensagem = input().strip()
 
             if mensagem == "":
-                sys.stdout.write(f"Erro: mensagem vazia.\n{PROMPT}")
+                # \033[F sobe o cursor uma linha (onde o enter vazio foi dado)
+                # \033[K apaga a linha inteira para não sujar o terminal
+                sys.stdout.write(f"\033[F\033[KErro: mensagem vazia.\n{PROMPT}")
                 sys.stdout.flush()
                 continue
 
@@ -73,6 +68,9 @@ def enviar_mensagens(client_socket):
                 sys.stdout.write("Encerrando cliente...\n")
                 sys.stdout.flush()
                 break
+
+            sys.stdout.write(PROMPT)
+            sys.stdout.flush()    
 
     except OSError as erro:
         sys.stdout.write(f"Erro ao enviar: {erro}\n")
