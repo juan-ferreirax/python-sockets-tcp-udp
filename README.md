@@ -2,6 +2,11 @@
 
 Esse é um trabalho da disciplina de Redes de Computadores II que visa explorar o uso de sockets TCP e UDP para comunicação entre clientes e servidores. O projeto foca na arquitetura Cliente-Servidor, utilizando tanto Sockets puros (TCP e UDP) quanto WebSockets assíncronos.
 
+## Integrantes
+- Juan Pablo Ferreira Costa
+- Nadson Nascimento Santos
+- Vitor Mozer Vieira Sales
+
 ## Como Executar o Projeto
 
 O repositório está dividido entre as questões que utilizam bibliotecas nativas do Python (Questões 1 a 4) e a Questão 10, que exige uma configuração específica (Criação e ativação de ambiente virtual e instalação de biblioteca). Siga as instruções abaixo de acordo com a questão que deseja testar.
